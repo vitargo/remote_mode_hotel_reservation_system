@@ -1,19 +1,29 @@
 package hotel;
 
+import javax.persistence.*;
 import java.sql.Timestamp;
 
+@Entity
+@Table(name="reservations")
 public class Reservation {
-
+    @Id
+    @Column(name="id_reservations", columnDefinition="BIGINT", nullable = false)
     private long id;
 
+    @Column(name="room_id", columnDefinition="BIGINT", nullable = false)
     private long roomId;
 
+    @Column(name="user_id", columnDefinition="BIGINT", nullable = false)
     private long userId;
 
+    @Column(name="price", columnDefinition="DECIMAL", nullable = false)
     private double price;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name="status", columnDefinition="VARCHAR", nullable = false)
     private ReservationStatus status;
 
+    @Column(name="start_date", columnDefinition="VARCHAR", nullable = false)
     private Timestamp startDate;
 
 

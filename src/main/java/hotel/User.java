@@ -1,17 +1,30 @@
 package hotel;
 
-public class User {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="users")
+public class User {
+    @Id
+    @Column(name="id_user", columnDefinition="BIGINT", nullable = false)
     private long id;
 
+    @Column(name="phone", columnDefinition="VARCHAR", nullable = false)
     private String phone;
 
+    @Column(name="password", columnDefinition="VARCHAR", nullable = false)
     private String password;
 
+    @Column(name="first_name", columnDefinition="VARCHAR", nullable = false)
     private String firstName;
 
+    @Column(name="last_name", columnDefinition="VARCHAR", nullable = false)
     private String lastName;
 
+    @Column(name="role", columnDefinition="VARCHAR", nullable = false)
     private UserRole role;
 
     public User(String phone, String password, String firstName, String lastName, UserRole role) {
